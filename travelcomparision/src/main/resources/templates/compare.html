@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+<meta charset="UTF-8">
+<title>Travel Comparison</title>
+
+<link rel="stylesheet" th:href="@{/css/style.css}">
+
+<link
+rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body class="compare-page">
+
+<div class="navbar">
+
+<div class="logo">
+
+<i class="fa-solid fa-bus"></i>
+
+<span>TravelCompare</span>
+
+</div>
+
+<a href="/home" class="home-btn">
+
+<i class="fa-solid fa-house"></i>
+
+Home
+
+</a>
+
+</div>
+
+<div class="page-title">
+
+<h1>
+
+Compare Travel Options
+
+</h1>
+
+<p>
+
+Find the best price for your journey
+
+</p>
+
+</div>
+
+<div class="compare-container">
+
+<div class="compare-card"
+
+th:each="option:${options}">
+
+<div class="card-top">
+
+<div class="company">
+
+<img
+th:src="${option.imageUrl}"
+alt="logo">
+
+<div>
+
+<h2
+th:text="${option.website}">
+
+</h2>
+
+<p>
+
+Trusted Partner
+
+</p>
+
+</div>
+
+</div>
+
+<div class="rating">
+
+⭐
+
+<span
+th:text="${option.rating}">
+
+</span>
+
+</div>
+
+</div>
+
+<div class="badge">
+
+🏆 Cheapest Deal
+
+</div>
+
+<div class="route">
+
+<i class="fa-solid fa-location-dot"></i>
+
+<span
+th:text="${option.source}">
+
+</span>
+
+<i class="fa-solid fa-arrow-right"></i>
+
+<span
+th:text="${option.destination}">
+
+</span>
+
+</div>
+
+<div class="details-grid">
+
+<div class="detail-box">
+
+<i class="fa-solid fa-indian-rupee-sign icon"></i>
+
+<h3>Price</h3>
+
+<h2>
+
+₹<span
+th:text="${option.price}">
+</span>
+
+</h2>
+
+<p>
+
+Best Available Fare
+
+</p>
+
+</div>
+
+<div class="detail-box">
+
+<i class="fa-solid fa-clock icon"></i>
+
+<h3>Departure</h3>
+
+<h2
+th:text="${option.departureTime}">
+</h2>
+
+<p>
+
+Departure Time
+
+</p>
+
+</div>
+
+<div class="detail-box">
+
+<i class="fa-solid fa-clock-rotate-left icon"></i>
+
+<h3>Arrival</h3>
+
+<h2
+th:text="${option.arrivalTime}">
+</h2>
+
+<p>
+
+Arrival Time
+
+</p>
+
+</div>
+
+<div class="detail-box">
+
+<i class="fa-solid fa-hourglass-half icon"></i>
+
+<h3>Duration</h3>
+
+<h2
+th:text="${option.duration}">
+</h2>
+
+<p>
+
+Journey Time
+
+</p>
+
+</div>
+<div class="detail-box">
+
+<i class="fa-solid fa-bed icon"></i>
+
+<h3>Bus Type</h3>
+
+<h2 th:text="${option.busType}"></h2>
+
+<p>Comfort Level</p>
+
+</div>
+
+<div class="detail-box">
+
+<i class="fa-solid fa-chair icon"></i>
+
+<h3>Seats Left</h3>
+
+<h2>
+
+<span th:text="${option.seatsLeft}"></span>
+
+</h2>
+
+<p>Available Seats</p>
+
+</div>
+
+<div class="detail-box">
+
+<i class="fa-solid fa-gift icon"></i>
+
+<h3>Offer</h3>
+
+<h2 th:text="${option.offer}"></h2>
+
+<p>Special Discount</p>
+
+</div>
+
+<div class="detail-box facilities">
+
+<i class="fa-solid fa-star icon"></i>
+
+<h3>Facilities</h3>
+
+<ul>
+
+<li th:each="facility : ${#strings.arraySplit(option.facilities, ',')}">
+    ✔ <span th:text="${facility}"></span>
+</li>
+
+</ul>
+
+</div>
+
+</div>
+
+<div class="card-footer">
+
+<div class="secure">
+
+<i class="fa-solid fa-shield-halved"></i>
+
+Secure Booking
+
+</div>
+
+<div class="buttons">
+
+<button class="fav">
+
+<i class="fa-solid fa-heart"></i>
+
+Favourite
+
+</button>
+
+<a
+th:href="${option.bookingLink}"
+target="_blank">
+
+<button class="book">
+
+Book Now
+
+</button>
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</body>
+
+</html>

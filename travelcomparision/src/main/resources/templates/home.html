@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AVENZA | Travel Beyond Limits</title>
+
+    <link rel="icon" th:href="@{/images/favicon.png}">
+
+    <link rel="stylesheet" th:href="@{/css/home.css}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<nav class="navbar">
+
+    <div class="logo">
+
+        <img th:src="@{/images/avenza-logo.png}" alt="logo">
+
+        <span>AVENZA</span>
+
+    </div>
+
+    <ul>
+
+        <li><a th:href="@{/home}" class="active">Home</a></li>
+
+        <li><a th:href="@{/history}">History</a></li>
+
+        <li><a th:href="@{/favourite}">Favourite</a></li>
+
+        <li><a th:href="@{/profile}">Profile</a></li>
+
+        <li>
+
+            <a class="logout-btn"
+
+               th:href="@{/logout}">
+
+                Logout
+
+            </a>
+
+        </li>
+
+    </ul>
+
+</nav>
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+    <div class="overlay"></div>
+
+    <div class="hero-left">
+
+        <h4>WELCOME TO</h4>
+
+        <h1>
+
+            AVENZA
+
+        </h1>
+
+        <h2>
+
+            Travel Beyond Limits
+
+        </h2>
+
+        <p>
+
+            Compare prices from multiple travel platforms,
+            discover the cheapest fares,
+            and book your perfect journey effortlessly.
+
+        </p>
+
+        <div class="features">
+
+            <div>
+
+                <i class="fa-solid fa-shield"></i>
+
+                Secure Booking
+
+            </div>
+
+            <div>
+
+                <i class="fa-solid fa-tags"></i>
+
+                Lowest Prices
+
+            </div>
+
+            <div>
+
+                <i class="fa-solid fa-star"></i>
+
+                Trusted Reviews
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Search Card -->
+
+    <div class="search-card">
+
+        <h2>
+
+            Search Your Journey
+
+        </h2>
+
+        <form action="/search" method="post">
+
+            <div class="input-group">
+
+                <i class="fa-solid fa-location-dot"></i>
+
+                <input
+
+                        type="text"
+
+                        name="source"
+
+                        placeholder="From"
+
+                        required>
+
+            </div>
+
+            <div class="input-group">
+
+                <i class="fa-solid fa-location-arrow"></i>
+
+                <input
+
+                        type="text"
+
+                        name="destination"
+
+                        placeholder="To"
+
+                        required>
+
+            </div>
+
+            <div class="input-group">
+
+                <i class="fa-solid fa-calendar-days"></i>
+
+                <input
+
+                        type="date"
+
+                        name="date"
+
+                        required>
+
+            </div>
+
+            <div class="input-group">
+
+                <i class="fa-solid fa-bus"></i>
+
+                <select name="travelType">
+
+                    <option>Bus</option>
+
+                    <option>Train</option>
+
+                    <option>Flight</option>
+
+                    <option>Hotel</option>
+
+                </select>
+
+            </div>
+
+            <button type="submit">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                Search Now
+
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
+
+<!-- ================= POPULAR DESTINATIONS ================= -->
+
+<section class="popular">
+
+    <h2>🔥 Popular Destinations</h2>
+
+    <p class="section-subtitle">
+        Discover the most booked routes across India
+    </p>
+
+    <div class="destination-container">
+
+        <div class="destination-card">
+
+            <img th:src="@{/images/hyderabad.jpg}" alt="Hyderabad">
+
+            <div class="destination-content">
+
+                <h3>Hyderabad → Bangalore</h3>
+
+                <p>Starting From</p>
+
+                <h1>₹799</h1>
+
+                <button>Explore</button>
+
+            </div>
+
+        </div>
+
+        <div class="destination-card">
+
+            <img th:src="@{/images/chennai.jpg}" alt="Chennai">
+
+            <div class="destination-content">
+
+                <h3>Chennai → Vizag</h3>
+
+                <p>Starting From</p>
+
+                <h1>₹699</h1>
+
+                <button>Explore</button>
+
+            </div>
+
+        </div>
+
+        <div class="destination-card">
+
+            <img th:src="@{/images/goa.jpg}" alt="Goa">
+
+            <div class="destination-content">
+
+                <h3>Delhi → Goa</h3>
+
+                <p>Starting From</p>
+
+                <h1>₹1899</h1>
+
+                <button>Explore</button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= SPECIAL OFFERS ================= -->
+
+<section class="offers">
+
+    <h2>🎁 Exclusive Travel Offers</h2>
+
+    <p class="section-subtitle">
+        Save more on every booking with AVENZA
+    </p>
+
+    <div class="offer-container">
+
+        <div class="offer-card">
+
+            <i class="fa-solid fa-ticket"></i>
+
+            <h3>Flat 20% OFF</h3>
+
+            <p>On your first bus booking.</p>
+
+        </div>
+
+        <div class="offer-card">
+
+            <i class="fa-solid fa-plane"></i>
+
+            <h3>Flight Cashback</h3>
+
+            <p>Get up to ₹1000 cashback.</p>
+
+        </div>
+
+        <div class="offer-card">
+
+            <i class="fa-solid fa-hotel"></i>
+
+            <h3>Hotel Deals</h3>
+
+            <p>Luxury hotels starting at ₹999.</p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= STATISTICS ================= -->
+
+<section class="statistics">
+
+    <div class="stat-box">
+
+        <h1>50K+</h1>
+
+        <p>Happy Travellers</p>
+
+    </div>
+
+    <div class="stat-box">
+
+        <h1>300+</h1>
+
+        <p>Routes Covered</p>
+
+    </div>
+
+    <div class="stat-box">
+
+        <h1>100+</h1>
+
+        <p>Travel Partners</p>
+
+    </div>
+
+    <div class="stat-box">
+
+        <h1>4.9★</h1>
+
+        <p>Average Rating</p>
+
+    </div>
+
+</section>
+<!-- ================= WHY CHOOSE AVENZA ================= -->
+
+<section class="why-us">
+
+    <h2>Why Choose AVENZA?</h2>
+
+    <p class="section-subtitle">
+        We make travel planning simple, fast, and affordable.
+    </p>
+
+    <div class="why-container">
+
+        <div class="why-card">
+
+            <i class="fa-solid fa-tags"></i>
+
+            <h3>Best Price Guarantee</h3>
+
+            <p>
+                Compare prices from multiple travel platforms
+                and always get the best available deal.
+            </p>
+
+        </div>
+
+        <div class="why-card">
+
+            <i class="fa-solid fa-clock"></i>
+
+            <h3>Instant Comparison</h3>
+
+            <p>
+                Search buses, trains, flights, and hotels
+                within seconds.
+            </p>
+
+        </div>
+
+        <div class="why-card">
+
+            <i class="fa-solid fa-shield-halved"></i>
+
+            <h3>Safe & Secure</h3>
+
+            <p>
+                Your bookings and personal information
+                are protected with secure technology.
+            </p>
+
+        </div>
+
+        <div class="why-card">
+
+            <i class="fa-solid fa-headset"></i>
+
+            <h3>24×7 Support</h3>
+
+            <p>
+                Friendly customer support whenever you need
+                assistance during your journey.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= TRAVEL PARTNERS ================= -->
+
+<section class="partners">
+
+    <h2>Our Trusted Partners</h2>
+
+    <p class="section-subtitle">
+        Compare fares from India's leading travel providers.
+    </p>
+
+    <div class="partner-container">
+
+        <div class="partner-card">
+
+            <img th:src="@{/images/redbus.png}" alt="RedBus">
+
+            <h3>RedBus</h3>
+
+        </div>
+
+        <div class="partner-card">
+
+            <img th:src="@{/images/abhibus.png}" alt="AbhiBus">
+
+            <h3>AbhiBus</h3>
+
+        </div>
+
+        <div class="partner-card">
+
+            <img th:src="@{/images/goibibo.png}" alt="Goibibo">
+
+            <h3>Goibibo</h3>
+
+        </div>
+
+        <div class="partner-card">
+
+            <img th:src="@{/images/makemytrip.png}" alt="MakeMyTrip">
+
+            <h3>MakeMyTrip</h3>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= TESTIMONIALS ================= -->
+
+<section class="testimonials">
+
+    <h2>What Our Customers Say</h2>
+
+    <p class="section-subtitle">
+        Trusted by thousands of happy travellers.
+    </p>
+
+    <div class="testimonial-container">
+
+        <div class="testimonial-card">
+
+            <i class="fa-solid fa-quote-left"></i>
+
+            <p>
+                AVENZA helped me compare bus prices quickly.
+                I saved ₹1200 on my Hyderabad trip!
+            </p>
+
+            <h4>Rahul Kumar</h4>
+
+            <span>★★★★★</span>
+
+        </div>
+
+        <div class="testimonial-card">
+
+            <i class="fa-solid fa-quote-left"></i>
+
+            <p>
+                Clean interface, easy booking, and amazing
+                travel deals. Highly recommended.
+            </p>
+
+            <h4>Priya Sharma</h4>
+
+            <span>★★★★★</span>
+
+        </div>
+
+        <div class="testimonial-card">
+
+            <i class="fa-solid fa-quote-left"></i>
+
+            <p>
+                Comparing flights and hotels in one place
+                saved both time and money.
+            </p>
+
+            <h4>Karthik Reddy</h4>
+
+            <span>★★★★★</span>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= CALL TO ACTION ================= -->
+
+<section class="cta">
+
+    <h2>Ready For Your Next Adventure?</h2>
+
+    <p>
+
+        Compare thousands of travel options and book your
+        journey with confidence.
+
+    </p>
+
+    <a href="#top" class="cta-btn">
+
+        <i class="fa-solid fa-plane-departure"></i>
+
+        Search Your Journey
+
+    </a>
+
+</section>
+
+<!-- ================= NEWSLETTER ================= -->
+
+<section class="newsletter">
+
+    <div class="newsletter-content">
+
+        <h2>Stay Updated</h2>
+
+        <p>
+
+            Subscribe to receive exclusive travel offers,
+            latest discounts, and exciting travel updates.
+
+        </p>
+
+        <form class="newsletter-form">
+
+            <input
+                    type="email"
+                    placeholder="Enter your email"
+                    required>
+
+            <button type="submit">
+
+                <i class="fa-solid fa-paper-plane"></i>
+
+                Subscribe
+
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <div class="footer-container">
+
+        <div class="footer-column">
+
+            <h2>AVENZA</h2>
+
+            <p>
+
+                Travel Beyond Limits
+
+            </p>
+
+            <p>
+
+                Compare buses, trains, flights,
+                and hotels from India's leading
+                travel platforms.
+
+            </p>
+
+        </div>
+
+        <div class="footer-column">
+
+            <h3>Quick Links</h3>
+
+            <ul>
+
+                <li><a th:href="@{/home}">Home</a></li>
+
+                <li><a th:href="@{/history}">History</a></li>
+
+                <li><a th:href="@{/favourite}">Favourite</a></li>
+
+                <li><a th:href="@{/profile}">Profile</a></li>
+
+            </ul>
+
+        </div>
+
+        <div class="footer-column">
+
+            <h3>Travel Services</h3>
+
+            <ul>
+
+                <li>Bus Booking</li>
+
+                <li>Train Booking</li>
+
+                <li>Flight Booking</li>
+
+                <li>Hotel Booking</li>
+
+            </ul>
+
+        </div>
+
+        <div class="footer-column">
+
+            <h3>Contact</h3>
+
+            <p>
+
+                <i class="fa-solid fa-location-dot"></i>
+
+                Bhimavaram, Andhra Pradesh
+
+            </p>
+
+            <p>
+
+                <i class="fa-solid fa-envelope"></i>
+
+                support@avenza.com
+
+            </p>
+
+            <p>
+
+                <i class="fa-solid fa-phone"></i>
+
+                +91 9876543210
+
+            </p>
+
+            <div class="social-icons">
+
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+
+                <a href="#"><i class="fab fa-instagram"></i></a>
+
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+
+                <a href="#"><i class="fab fa-x-twitter"></i></a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <hr>
+
+    <div class="copyright">
+
+        © 2026 AVENZA. All Rights Reserved.
+
+    </div>
+
+</footer>
+
+<script th:src="@{/js/home.js}"></script>
+
+
+</body>
+
+</html>
